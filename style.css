@@ -97,6 +97,11 @@ main > section:first-child span {
     position: absolute;
 }
 
+
+.pointer-clock > .hand {
+    font-family: 'Nunito', sans-serif
+}
+
 .pointer-clock > .hand {
     transform-origin: left center;
     background-color: rgb(223, 34, 213)
@@ -249,7 +254,7 @@ main > section:first-child span {
 }
 
  /* Cronometer container and some timer container styles. */
-.cronometer-container {
+.cronometer-container, .timer-container {
     justify-content: center;
     padding-top: 100px;
 }
@@ -447,7 +452,6 @@ main > section:first-child span {
 
 .timer-container {
     justify-content: center;
-    align-items: center;
 }
 
 .timer-wrapper-container > div:first-child {
@@ -612,7 +616,7 @@ main > section:first-child span {
     }
 }
 
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 285px) {
     html {
         font-size: 15px;
     }
@@ -620,6 +624,14 @@ main > section:first-child span {
     .pointer-clock {
         width: 180px;
         height: 180px;
+    }
+
+    .pointer-clock .number {
+        font-size: 17px
+    }
+
+    .pointer-clock .number:nth-child(4) {
+        top: 9%
     }
 
     .pointer-clock .hand:nth-child(1) {
@@ -634,8 +646,30 @@ main > section:first-child span {
         height: 6px;
     }
 
+    .digital-clock > span {
+        font-size: 17px !important;
+    }
+
     :is(.cronometer-wrapper-container, .timer-actions-container) div button {
         grid-column: span 2;
+    }
+
+    .cronometer-container .tooltip {
+        left: 0%
+    }
+}
+
+@media  (max-width: 249px) {
+    .cronometer-container .tooltip {
+        left: 50%
+    }
+
+    [data-js="cronometer-display"] {
+        margin-top: 10px
+    }
+
+    .flex-container span {
+        font-size: 18px ;
     }
 }
 
