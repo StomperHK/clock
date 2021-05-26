@@ -1,0 +1,690 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    outline: none;
+}
+
+body {
+    background-color: rgb(34, 37, 49);
+    overflow-x: hidden;
+}
+
+
+.change-funcionality {
+    margin: 0px auto;
+    max-width: 800px;
+}
+
+.change-funcionality > div:first-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+    
+.change-funcionality button {
+    display: block;
+    padding: 0.8rem 0rem 0.8rem 0rem;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+
+    transition: background-color 0.150s ease;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.change-funcionality > div:last-child {
+    height: 2px;
+
+    position: relative;
+
+    background-color: rgb(0, 136, 248);
+
+    transition: left 0.120s ease-out;
+}
+
+
+main > section {
+    display: none;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+}
+
+
+ /* Clock container styles. */
+.clock-container {
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+main > section:first-child span {
+    display: inline-block;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pointer-clock {
+    border: 4px solid rgba(220, 94, 224, 0.7);
+    width: 290px;
+    height: 290px;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    box-shadow: inset 2px 4px 11px rgba(29, 15, 15, 0.8),
+                      2px 4px 11px rgba(29, 15, 15, 0.8);
+}
+
+.pointer-clock > span {
+    position: absolute;
+}
+
+.pointer-clock > .hand {
+    transform-origin: left center;
+    background-color: rgb(223, 34, 213)
+}
+
+.pointer-clock > .hand:nth-child(1) {    /* Hands of the clock. */
+    width: 35%;
+    height: 3px;
+
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.pointer-clock > .hand:nth-child(2) {
+    width: 30%;
+    height: 6px;
+
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.pointer-clock > .hand:nth-child(3) {
+    width: 25%;
+    height: 8px;
+
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.pointer-clock > .number:nth-child(4) {    /* Numbers. */
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pointer-clock > .number:nth-child(5) {
+    left: 7%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pointer-clock > .number:nth-child(6) {
+    right: 7%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+.pointer-clock > .number:nth-child(7) {
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.pointer-clock > .circle:nth-child(8) {    /* Circle. */
+    width: 10px;
+    height: 10px;
+    
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+
+    background-color: white;
+}
+
+.pointer-clock > .row {
+    width: 10%;
+    height: 2px;
+
+    background-color: white;
+}
+
+.pointer-clock > .row:nth-child(9) {    /* Rows. */
+    top: 14.5%;
+    right: 24.5%;
+    transform: translateY(-50%) rotate(-60deg);
+}
+
+.pointer-clock > .row:nth-child(10) {
+    top: 29%;
+    right: 8%;
+    transform: translateY(-50%) rotate(-30deg)
+}
+
+.pointer-clock > .row:nth-child(11) {
+    top: 71%;
+    right: 8%;
+    transform: translateY(-50%) rotate(30deg);
+}
+
+.pointer-clock > .row:nth-child(12) {
+    top: 87%;
+    right: 23.8%;
+    transform: translateY(-50%) rotate(60deg);
+}
+
+.pointer-clock > .row:nth-child(13) {
+    top: 87%;
+    left: 23.8%;
+    transform: translateY(-50%) rotate(-60deg);    
+}
+
+.pointer-clock > .row:nth-child(14) {
+    top: 71%;
+    left: 8%;
+    transform: translateY(-50%) rotate(-30deg);
+}
+
+.pointer-clock > .row:nth-child(15) {
+    top: 29%;
+    left: 8%;
+    transform: translateY(-50%) rotate(30deg)
+}
+
+.pointer-clock > .row:nth-child(16) {
+    top: 14.5%;
+    left: 24.5%;
+    transform: translateY(-50%) rotate(60deg);
+}
+
+.digital-clock {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    border: 3px solid rgb(0, 136, 248);   
+    padding: 0.6rem;
+    width: 45%;
+    max-width: 180px;
+
+    border-radius: 8px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    color: white;
+}
+
+.digital-clock > span {
+    font-family: 'Nunito', sans-serif;
+}
+
+ /* Cronometer container and some timer container styles. */
+.cronometer-container {
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.cronometer-wrapper-container,
+.timer-wrapper-container {
+    min-width: 55%;
+}
+
+.cronometer-container .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flex-container > button {
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0);
+
+    position: relative;
+
+    border-radius: 4px;
+
+    transition: background-color 0.1s ease;
+}
+
+.cronometer-container .flex-container div {
+    margin-right: 4px;
+}
+
+.cronometer-container .tooltip {
+    width: 80px;
+    padding: 6px 0px;
+    margin-bottom: 10px;
+    border: none;
+
+    font-size: 12px;
+
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+
+    border-radius: 6px;
+
+    background-color: rgba(26, 25, 25, 0.5);
+    color: white;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.050s ease;
+}
+
+.cronometer-container svg {
+    vertical-align: middle;
+}
+
+.flex-container span,
+.timer-container span {
+    color: rgb(207, 212, 143);
+    font-size: 1.8rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.flex-container span:nth-child(6) {
+    font-size: 0.8rem;
+}
+
+.cronometer-actions-container,
+.timer-actions-container {
+    position: relative;
+}
+
+:is(.cronometer-actions-container, .timer-actions-container) button {
+    display: block;
+    margin-top: 0.4rem;
+    border: 2px solid rgb(0, 136, 248);
+    padding: 0.3rem;
+    width: 100%;
+    
+    font-size: 1rem;
+    font-variant: small-caps;
+    color: rgb(0, 136, 248);
+    font-family: sans-serif;
+
+    border-radius: 4px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    transition: opacity 0.2s ease, background-color 0.1s ease;
+}
+
+:is(.cronometer-actions-container, .timer-actions-container) > button {
+    position: absolute;
+}
+
+:is(.cronometer-actions-container, .timer-actions-container) div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4px;
+
+    transition: opacity 0.2s ease
+}
+
+:is(.cronometer-actions-container, .timer-actions-container) > button:first-child {
+    border-color: lightgreen;
+    color: lightgreen;
+}
+
+:is(.cronometer-actions-container, .timer-actions-container) button:last-child {
+    grid-column: span 2;
+
+    margin-bottom: 6px;
+
+    border-color: tomato;
+
+    color: tomato;
+
+    transition: opacity 0.050s ease, background-color 0.1s ease;
+}
+
+.stored-values-container {
+    margin-top: 1.5rem;
+    transition: margin 0.1s ease;
+}
+
+.stored-values-container > h2 {
+    padding-bottom: 4px;
+
+    color: turquoise;
+    font-family: 'Nunito', sans-serif;
+    
+    overflow-wrap: break-word;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.stored-values {
+    margin-bottom: 10px;
+    padding: 2px;
+    max-height: 40vh;
+
+    background-color: rgba(48, 48, 51, 0.5);
+
+    border-radius: 8px;
+
+    color: white;
+
+    overflow: auto;
+}
+
+.stored-values::-webkit-scrollbar {
+    width: 10px;
+}
+
+.stored-values::-webkit-scrollbar-thumb {
+    background-color: rgb(82, 73, 73);
+    min-height: 30px;
+}
+
+.stored-values > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 4px;
+    
+    font-family: 'Nunito', sans-serif;
+}
+
+.stored-values > div + div {
+    border-top: 1px solid turquoise;
+}
+
+.stored-values .small-number {
+    font-size: 0.7rem;
+}
+
+
+.timer-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-wrapper-container > div:first-child {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.timer-wrapper-container input {
+    border: 2px solid rgb(207, 212, 143);
+    height: 50px;
+    width: 50px;
+    max-width: 60px;
+
+    border-radius: 4px;
+
+    background-color: transparent;
+
+    color: rgb(207, 212, 143);
+
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+@keyframes show-element {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+
+ /* JavaScript classes. */
+ .element-highlighter {
+    background-color: rgba(78, 71, 71, 0.5) !important;
+}
+
+.fill-color-changer {
+    fill: rgb(0, 136, 248) !important;
+}
+
+.disabled-element {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.display-flex {
+    display: flex;
+    animation: show-element 0.3s ease forwards;
+}
+
+.reduce-margin {
+    margin-top: -20px !important;
+}
+
+
+@media screen and (max-width: 530px) {
+    .numbers-cronometer-container .cronometer-display span {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-height: 490px) {
+    .pointer-clock {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    :is(.cronometer-wrapper-container, .timer-actions-container) button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .flex-container > button:hover > .tooltip {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :is(.cronometer-wrapper-container, .timer-actions-container) button:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .flex-container button:active > .tooltip {
+        opacity: 1;
+    }
+}
+
+@media screen and (hover: hover) {
+    :is(.cronometer-wrapper-container, .timer-actions-container) button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .flex-container button:hover > .tooltip {
+        opacity: 1;
+    }
+}
+
+@media screen and (hover: none) {
+    :is(.cronometer-wrapper-container, .timer-actions-container) button:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .flex-container button:active > .tooltip {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .pointer-clock {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media screen and (max-height: 410px) {
+    .clock-container {
+        justify-content: center;
+    }
+
+    .pointer-clock {
+        margin-bottom: 20px;
+    }
+
+    .cronometer-container,
+    .timer-container {
+        padding-top: 55px;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .numbers-cronometer-container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-height: 370px) {
+    .clock-container {
+        padding-top: 40px;
+    }
+
+    .digital-clock {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .timer-container input {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    main span {
+        font-weight: 400;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    html {
+        font-size: 15px;
+    }
+
+    .pointer-clock {
+        width: 180px;
+        height: 180px;
+    }
+
+    .pointer-clock .hand:nth-child(1) {
+        height: 2px;
+    }
+
+    .pointer-clock .hand:nth-child(2) {
+        height: 4px;
+    }
+
+    .pointer-clock .hand:nth-child(3) {
+        height: 6px;
+    }
+
+    :is(.cronometer-wrapper-container, .timer-actions-container) div button {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .pointer-clock {
+        height: 180px;
+        width: 180px;
+    }
+
+    .digital-clock {
+        width: 60%
+    }
+
+    .digital-clock span {
+        font-size: 14px;
+    }
+
+    .cronometer-container {
+        padding-top: 50px;
+    }
+
+    .cronometer-wrapper-container {
+        width: 70%;
+    }
+
+    .cronometer-display span {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 210px) {
+    .pointer-clock {
+        width: 160px;
+        height: 160px;
+    }
+
+    .pointer-clock .number  {
+        font-size: 16px;
+    }
+
+    .flex-container span {
+        font-size: 20px;
+    }
+
+    .stored-values-container > h2 {
+        font-size: 18px;
+    }
+
+    .digital-clock span {
+        font-size: 12px
+    }
+}
