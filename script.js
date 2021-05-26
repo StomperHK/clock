@@ -454,7 +454,14 @@ timerReseterEL.addEventListener('click', () => resetTimer(true))
 timerRestarterEL.addEventListener('click', restartTimer)
 
 
+window.addEventListener('deviceorientation', () => {
+    changeFuncionalityRowPosition(globalButtonIndex)
+    setFuncionalityRowWidth()
+    slideToFuncionality(globalButtonIndex)
+})
+
 window.addEventListener('resize', () => {
     changeFuncionalityRowPosition(globalButtonIndex)
+    setFuncionalityRowWidth()
     slideToFuncionality(globalButtonIndex)
 })
